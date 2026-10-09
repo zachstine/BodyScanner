@@ -60,6 +60,8 @@ h2 {
     gap:20px
 }
 .monitor {
+    min-width:0;
+    width:100%;
     background:linear-gradient(140deg,#111f30,#070c13);
     border:1px solid #2d455a;
     border-radius:16px;
@@ -80,6 +82,86 @@ video {
     display:block;
     position:absolute;
     inset:0
+}
+#poseCanvas {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none
+}
+.tracking-badge {
+    top:15px;
+    right:15px;
+    max-width:calc(100% - 120px);
+    text-align:right
+}
+.tracking-badge[data-state="loading"],.tracking-badge[data-state="waiting"],.tracking-badge[data-state="paused"] {
+    color:#c4d2df;
+    background:#192a3ce8
+}
+.tracking-badge[data-state="error"] {
+    color:#ffb5a2;
+    background:#472721e8
+}
+.tracking-controls {
+    margin-top:25px;
+    padding-top:22px;
+    border-top:1px solid #293e55
+}
+.tracking-heading {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px
+}
+.tracking-heading h2 {
+    margin:0;
+    font-size:17px
+}
+.tracking-rate {
+    color:#72eab3;
+    font:12px ui-monospace,SFMono-Regular,monospace;
+    white-space:nowrap
+}
+.panel .tracking-status {
+    min-height:48px;
+    margin:12px 0 0;
+    font-size:13px
+}
+.checkbox-label {
+    display:flex;
+    align-items:center;
+    gap:9px;
+    cursor:pointer;
+    font-size:13px
+}
+.checkbox-label input {
+    width:17px;
+    height:17px;
+    accent-color:#60e5aa
+}
+.tracking-controls .hint {
+    margin-bottom:0;
+    font-size:12px
+}
+button.fullscreen-button {
+    position:absolute;
+    right:15px;
+    bottom:15px;
+    width:auto;
+    margin:0;
+    padding:8px 11px;
+    font-size:11px
+}
+.monitor:fullscreen {
+    width:100vw;
+    height:100vh;
+    aspect-ratio:auto;
+    min-height:0;
+    border:0;
+    border-radius:0;
+    background:#050a10
 }
 .placeholder {
     position:absolute;
@@ -190,8 +272,11 @@ footer {
     font-size:12px
 }
 @media(max-width:850px) {
+    header {
+        flex-wrap:wrap
+    }
     .grid {
-        grid-template-columns:1fr
+        grid-template-columns:minmax(0,1fr)
     }
     .monitor {
         min-height:230px
