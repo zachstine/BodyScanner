@@ -16,7 +16,7 @@
      ◉ SURVEILLANCE DEMO
     </span>
     <span class="tag">
-     LIVE CAMERA PROTOTYPE
+     LIVE CAMERA + BODY TRACKING
     </span>
    </header>
    <h1>
@@ -26,9 +26,10 @@
     Open this page on the laptop connected to your classroom projector.
    </p>
    <section class="grid">
-    <div class="monitor">
+    <div class="monitor" id="monitor">
      <video autoplay="" id="remoteVideo" muted="" playsinline="">
      </video>
+     <canvas aria-hidden="true" id="poseCanvas"></canvas>
      <div class="placeholder" id="placeholder">
       <span class="large">
        ◎
@@ -43,6 +44,12 @@
      <span class="corner bottom" id="connectionState">
       OFFLINE
      </span>
+     <span class="corner tracking-badge" data-state="waiting" id="trackingBadge">
+      WAITING FOR VIDEO
+     </span>
+     <button class="fullscreen-button secondary" id="fullscreen" type="button">
+      Fullscreen
+     </button>
     </div>
     <aside class="panel">
      <h2>
@@ -70,13 +77,33 @@
        Scan this QR code with your iPhone camera.
       </p>
      </div>
+     <p class="status" id="status" role="status">
+      Start a session to connect your iPhone.
+     </p>
      <button class="secondary" disabled="" id="endSession">
       End session
      </button>
+     <section aria-labelledby="trackingHeading" class="tracking-controls">
+      <div class="tracking-heading">
+       <h2 id="trackingHeading">Live body tracking</h2>
+       <span class="tracking-rate" id="trackingRate">— fps</span>
+      </div>
+      <p class="tracking-status" id="trackingStatus" role="status">
+       Tracking starts automatically when live video arrives.
+      </p>
+      <button aria-pressed="true" class="secondary" id="toggleTracking" type="button">
+       Pause tracking
+      </button>
+      <label class="checkbox-label" for="showBoundingBox">
+       <input checked="" id="showBoundingBox" type="checkbox"/>
+       Show body outline box
+      </label>
+      <p class="hint">Keep one person in view, with their full body visible. Tracking runs on this laptop.</p>
+     </section>
     </aside>
    </section>
    <footer>
-    Demonstration project — not a Flock Safety product. This version only streams video; it does not identify people or record footage.
+    Demonstration project — not a Flock Safety product. Live body position tracking; no identity recognition or video recording.
    </footer>
   </main>
   <script src="viewer.js" type="module">
