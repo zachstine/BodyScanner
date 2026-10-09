@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#0b1220" name="theme-color"/>
+  <title>
+   Surveillance Demo | Viewer
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <main class="shell">
+   <header>
+    <span class="brand">
+     ◉ SURVEILLANCE DEMO
+    </span>
+    <span class="tag">
+     LIVE CAMERA PROTOTYPE
+    </span>
+   </header>
+   <h1>
+    Classroom viewer
+   </h1>
+   <p class="muted">
+    Open this page on the laptop connected to your classroom projector.
+   </p>
+   <section class="grid">
+    <div class="monitor">
+     <video autoplay="" id="remoteVideo" muted="" playsinline="">
+     </video>
+     <div class="placeholder" id="placeholder">
+      <span class="large">
+       ◎
+      </span>
+      <p>
+       Waiting for iPhone camera
+      </p>
+     </div>
+     <span class="corner top">
+      CAM 01
+     </span>
+     <span class="corner bottom" id="connectionState">
+      OFFLINE
+     </span>
+    </div>
+    <aside class="panel">
+     <h2>
+      Connect an iPhone
+     </h2>
+     <p>
+      1. Start a session. 2. Open the camera link on your iPhone. 3. Tap Start Camera.
+     </p>
+     <button id="createSession">
+      Start new session
+     </button>
+     <div hidden="" id="sessionInfo">
+      <label>
+       Camera link
+      </label>
+      <div class="linkbox">
+       <input aria-label="Camera URL" id="cameraUrl" readonly=""/>
+       <button class="secondary" id="copyLink">
+        Copy
+       </button>
+      </div>
+      <div class="qr" id="qr">
+      </div>
+      <p class="hint">
+       Scan this QR code with your iPhone camera.
+      </p>
+     </div>
+     <p class="status" id="status" role="status">
+      Set up Firebase to begin.
+     </p>
+     <button class="secondary" disabled="" id="endSession">
+      End session
+     </button>
+    </aside>
+   </section>
+   <footer>
+    Demonstration project — not a Flock Safety product. This version only streams video; it does not identify people or record footage.
+   </footer>
+  </main>
+  <script src="viewer.js" type="module">
+  </script>
+ </body>
+</html>

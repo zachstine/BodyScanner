@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#0b1220" name="theme-color"/>
+  <title>
+   Surveillance Demo | iPhone Camera
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <main class="shell compact">
+   <header>
+    <span class="brand">
+     ◉ CAMERA TRANSMITTER
+    </span>
+    <span class="tag">
+     PHONE
+    </span>
+   </header>
+   <h1>
+    iPhone camera
+   </h1>
+   <p class="muted">
+    Keep Safari open and the phone screen awake while streaming.
+   </p>
+   <div class="monitor preview">
+    <video autoplay="" id="localVideo" muted="" playsinline="">
+    </video>
+    <div class="placeholder" id="placeholder">
+     Camera not started
+    </div>
+    <span class="corner top">
+     CAM 01
+    </span>
+    <span class="corner bottom" id="connectionState">
+     OFFLINE
+    </span>
+   </div>
+   <div class="panel">
+    <p class="status" id="status" role="status">
+     Ready to connect.
+    </p>
+    <button id="startCamera">
+     Start Camera &amp; Broadcast
+    </button>
+    <button class="secondary" disabled="" id="stopCamera">
+     Stop Camera
+    </button>
+   </div>
+   <p class="hint">
+    Safari will request camera permission. Audio is never requested. No video is saved by this site.
+   </p>
+  </main>
+  <script src="camera.js" type="module">
+  </script>
+ </body>
+</html>
